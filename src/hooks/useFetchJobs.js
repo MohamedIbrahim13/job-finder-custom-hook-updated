@@ -18,7 +18,7 @@ const useFetchJobs = (params,page)=>{
         });
 
         const canceltoken2 = axios.CancelToken.source();
-        axios.get('https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json',{canceltoken2:canceltoken2.token,params:{...params,page: page + 1,markdown:true}}).then(res=>{
+        axios.get('https://jobs.github.com/positions.json',{canceltoken2:canceltoken2.token,params:{...params,page: page + 1,markdown:true}}).then(res=>{
             setLoading(false);
             setJobs(res.data);
         }).catch(err=>{
